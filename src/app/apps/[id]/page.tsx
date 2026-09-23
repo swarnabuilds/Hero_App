@@ -12,6 +12,15 @@ interface IAppDetails {
   };
 }
 
+export const generateStaticParams = async() => {
+  const AllApps = await getApps();
+
+  return AllApps.map((app : IApp) => {
+    return {id : app.id.toString()}
+  })
+}
+
+
 const AppDetailsPage = async ({ params }: IAppDetails) => {
   const { id } = await params;
   const AllApps = await getApps();
