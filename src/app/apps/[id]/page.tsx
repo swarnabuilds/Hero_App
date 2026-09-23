@@ -1,3 +1,4 @@
+import InstallBtn from "@/components/app/InstallBtn";
 import { getApps } from "@/lib/apps";
 import { IApp } from "@/type/Apps.type";
 import Image from "next/image";
@@ -87,12 +88,7 @@ const AppDetailsPage = async ({ params }: IAppDetails) => {
                 </span>
               </div>
 
-              {/* Action Button */}
-              <div className="pt-2">
-                <button className="btn btn-primary text-white font-semibold rounded-xl border-none shadow-md shadow-primary/20 hover:shadow-lg transition-all w-full sm:w-auto h-11 px-6 text-sm">
-                  Install App ({app.size} MB)
-                </button>
-              </div>
+              <InstallBtn app={app}></InstallBtn>
             </div>
           </div>
 
