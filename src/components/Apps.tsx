@@ -1,17 +1,6 @@
 import { IApp } from "@/type/Apps.type";
 import AppCard from "./shared/AppCard";
-
-const getApps = async () => {
-  const res = await fetch("http://localhost:3000/data.json", {
-    cache: "no-store",  
-  });
-
-  if (!res.ok) {
-    throw new Error("Failed to fetch apps data");
-  }
-
-  return res.json();
-};
+import { getApps } from "@/lib/apps";
 
 const Apps = async () => {
   const AllData = await getApps();
