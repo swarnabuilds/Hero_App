@@ -1,6 +1,7 @@
  
 import { IApp } from '@/type/Apps.type';
 import Image from 'next/image';
+import Link from 'next/link';
 import { FaStar, FaDownload } from 'react-icons/fa';
 import { FiHardDrive } from 'react-icons/fi';
 
@@ -8,7 +9,7 @@ interface IDataProps {
     data: IApp
 }
 const AppCard = ({ data }:IDataProps) => {
-  const { image, title, companyName, description, size, ratingAvg, downloads } = data;
+  const {id, image, title, companyName, description, size, ratingAvg, downloads } = data;
 
   return (
     <div className="w-full max-w-full bg-base-100 rounded-2xl border border-slate-100 shadow-md hover:shadow-xl transition-all duration-300 p-5 flex flex-col justify-between group">
@@ -73,11 +74,11 @@ const AppCard = ({ data }:IDataProps) => {
       </div>
 
       {/* Bottom Section: Action Button */}
-      <div className="mt-5">
-        <button className="w-full btn btn-primary text-white font-semibold rounded-xl border-none shadow-md shadow-primary/20 hover:shadow-lg hover:shadow-primary/30 transition-all duration-200 capitalize min-h-0 h-10 text-sm">
-          Install App
-        </button>
-      </div>
+      <Link href={`/apps/${id}`}
+          className="w-full btn btn-primary text-white font-semibold rounded-xl border-none shadow-md shadow-primary/20 hover:shadow-lg hover:shadow-primary/30 transition-all duration-200 capitalize min-h-0 h-10 text-sm flex items-center justify-center"
+        >
+          View Details
+        </Link>
     </div>
   );
 };
